@@ -147,7 +147,9 @@
                             <div class="col-sm-12">
                                 <div class="text-center">
                                     <p>Diseñado por <a href="http://www.cucsh.udg.mx" rel="nofollow"
-                                            target="_blank">CTA CUCSH</a></p>
+                                            target="_blank">CTA CUCSH</a>
+                                        <a href="https://transparencia.udg.mx/aviso-confidencialidad-integral" class="text-decoration-none text-white" target="_blank">Aviso de privasidad *</a>
+                                        </p>
 
 
                                 </div>
@@ -231,7 +233,7 @@
     var registrado = 0;
 
     $(document).ready(function() {
-        //$('#staticBackdrop').modal('toggle');
+        $('#staticBackdrop').modal('toggle');
         $(document).on('click', '.pagination a', function(event) {
             event.preventDefault();
             var page = $(this).attr('href').split('page=')[1];
