@@ -35,20 +35,20 @@ class RegistrosController extends Controller
         }
         if (isset($request->sexo)) {
             if (strcmp($request->sexo, 'Cualquiera') != 0) {
-                array_push($consulta, " sexo = '" . $request->sexo . "'");
+                array_push($consulta, " ( sexo = '" . $request->sexo . "' )");
             } else {
-                array_push($consulta, " sexo = 'HOMBRE' or sexo = 'MUJER'");
+                array_push($consulta, " ( sexo = 'HOMBRE' or sexo = 'MUJER' )");
             }
         }
         if (isset($request->edad)) {
-            array_push($consulta, ' generacion = ' . $request->edad);
+            array_push($consulta, '( generacion = ' . $request->edad . ")");
         }
         if (isset($request->nivel_educativo)) {
-            $temp = " nivel_educativo  =  '" . $request->nivel_educativo . "'";
+            $temp = "( nivel_educativo  =  '" . $request->nivel_educativo . "' )";
             array_push($consulta, $temp);
         }
         if (isset($request->contenido)) {
-            array_push($consulta, " text_archivo like '%" . $request->contenido . "%'");
+            array_push($consulta, "( text_archivo like '%" . $request->contenido . "%' )");
             $flag = 0;
         }
         if (count($consulta) > 0) {
@@ -60,23 +60,23 @@ class RegistrosController extends Controller
                     $consulta_f = $consulta_f . ' and ' . $consulta[$i];
                 }
             }
+            //return $consulta_f;
             $registros = Registros::whereRaw($consulta_f)->get();
         } else {
             $registros = Registros::all();
         }
 
-        if (isset($flag)) {
-            foreach ($registros as $item) {
+        if (isset($flag)){
+            foreach ($registros as $item){
                 $prueba = strpos($item->text_archivo, $request->contenido);
-                $item->text_archivo = substr($item->text_archivo, $prueba - 20, 100);
-                $item->text_archivo = str_replace($request->contenido, "<b style='background:yellow'>" . $request->contenido . '</b>', $item->text_archivo);
+                $item->text_archivo = substr($item->text_archivo, $prueba - 20, 50);
+                $item->text_archivo = str_replace($request->contenido, "<strong style='background:yellow'>" . $request->contenido . '</strong>', $item->text_archivo);
             }
         } else {
             foreach ($registros as $item) {
                 $item->text_archivo = substr($item->text_archivo, 1, 60);
             }
         }
-        
         return view('layouts.resultados', compact('registros'))->render();
     }
 }

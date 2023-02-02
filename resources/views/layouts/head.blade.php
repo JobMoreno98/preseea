@@ -6,11 +6,6 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!--====== Animate CSS ======-->
-<link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-
-<!--====== glightbox CSS ======-->
-<link rel="stylesheet" href="{{ asset('css/glightbox.min.css') }}">
 
 <!--====== Selectr CSS ======-->
 <link rel="stylesheet" href="{{ asset('css/selectr.css') }}">
@@ -29,7 +24,6 @@
 
 <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.13.1/r-2.4.0/datatables.min.css" />
 
 <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>

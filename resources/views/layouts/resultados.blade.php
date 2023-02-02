@@ -1,4 +1,5 @@
 @if ($registros->all() != null)
+<div class="table-responsive">
     <table id="myTable" class="table border-top">
         <thead>
             <tr>
@@ -7,6 +8,7 @@
                 <th>Nivel educativo</th>
                 <th>Grupo edad</th>
                 <th>Contenido</th>
+                <th>Descarga</th>
             </tr>
         </thead>
         <tbody>
@@ -27,15 +29,20 @@
                     <td>
                         {{!! $item->text_archivo !!}}
                     </td>
+                    <td>
+                        <a download="{{$item->archivo}}" href="{{asset('storage/archivos/'.$item->archivo)}}" target="_blank" rel="noopener noreferrer">Descargar archivo</a> 
+                    </td>
                 </tr>
             @endforeach
         </tbody>
 
     </table>
+</div>
+
     <script>
         $(document).ready(function() {
             $('#myTable').DataTable({
-                responsive: true,
+                "responsive": true,
                 "pageLength": 10,
                 "language": {
                     "sProcessing": "Procesando...",

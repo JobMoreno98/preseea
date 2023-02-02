@@ -55,20 +55,18 @@
     <!--====== SEARCH PART START ======-->
     <div class="search-area">
         <div class="container">
-            <div class="search-wrapper">
+            <div class="search-wrapper shadow">
                 <div class="row justify-content-center">
-                    <div class="row" id="registro" class="bg-dark text-white">
-                    </div>
-                    <form id="formulario" class="row align-items-center justify-content-center">
+                    <form id="formulario" class="row align-items-center justify-content-center ">
                         @csrf
-                        <div class="col-lg-3 col-sm-12 col-10">
+                        <div class="col-lg-3 col-sm-12">
                             <div class="search-input">
                                 <label for="codigo"></label>
                                 <input type="text" class="form-control" name="codigo" id="codigo"
                                     placeholder="Código">
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-12 col-10">
+                        <div class="col-lg-3 col-sm-12 ">
                             <div class="search-input">
                                 <label for="sexo">Sexo</label>
                                 <select name="sexo" id="sexo" class="form-control">
@@ -80,7 +78,7 @@
 
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-12 col-10">
+                        <div class="col-lg-3 col-sm-12">
                             <div class="search-input">
                                 <label for="nivel_educativo">Nivel educativo</label>
                                 <select name="nivel_educativo" id="nivel_educativo" class="form-control">
@@ -91,7 +89,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-12 col-10">
+                        <div class="col-lg-3 col-sm-12">
                             <div class="search-input">
                                 <label for="edad">Grupo edad</label>
                                 <select name="edad" id="edad" class="form-control">
@@ -254,20 +252,9 @@
     <!--====== Bootstrap js ======-->
     <script src="{{ asset('js/bootstrap.bundle-5.0.0.alpha-min.js') }}"></script>
 
-    <!--====== Tiny slider js ======-->
-    <script src="{{ asset('js/tiny-slider.js') }}"></script>
-
-    <!--====== wow js ======-->
-    <script src="{{ asset('js/wow.min.js') }}"></script>
-
-    <!--====== glightbox js ======-->
-    <script src="{{ asset('js/glightbox.min.js') }}"></script>
-
     <!--====== Selectr js ======-->
     <script src="{{ asset('js/selectr.min.js') }}"></script>
 
-    <!--====== Nouislider js ======-->
-    <script src="{{ asset('js/nouislider.js') }}"></script>
 
     <!--====== Main js ======-->
     <script src="{{ asset('js/main.js') }}"></script>
