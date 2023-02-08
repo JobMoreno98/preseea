@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Registros;
 use App\Models\User;
 use App\Models\Usuarios;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,11 @@ class RegistrosController extends Controller
 {
     public function registro(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required',
+            'apellidos' => 'required',
+            'institucion' => 'required',
+        ]);
         if ($request->ajax()) {
             $usuario = new Usuarios();
             $usuario->nombre = $request->nombre;
@@ -41,7 +47,7 @@ class RegistrosController extends Controller
             }
         }
         if (isset($request->edad)) {
-            array_push($consulta, '( generacion = ' . $request->edad . ")");
+            array_push($consulta, '( generacion = ' . $request->edad . ')');
         }
         if (isset($request->nivel_educativo)) {
             $temp = "( nivel_educativo  =  '" . $request->nivel_educativo . "' )";
@@ -66,8 +72,8 @@ class RegistrosController extends Controller
             $registros = Registros::all();
         }
 
-        if (isset($flag)){
-            foreach ($registros as $item){
+        if (isset($flag)) {
+            foreach ($registros as $item) {
                 $prueba = strpos($item->text_archivo, $request->contenido);
                 $item->text_archivo = substr($item->text_archivo, $prueba - 20, 50);
                 $item->text_archivo = str_replace($request->contenido, "<strong style='background:yellow'>" . $request->contenido . '</strong>', $item->text_archivo);

@@ -16,9 +16,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('inicio');
 
 Route::post('/registrar-usuario',[RegistrosController::class,'registro'])->name('registrar-usuario');
 
 
 Route::post('/buscar-registros',[RegistrosController::class,'buscar'])->name('buscar-registros');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
